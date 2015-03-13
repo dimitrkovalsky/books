@@ -11,7 +11,7 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <neo4j.version>2.1.5</neo4j.version>
+        <neo4j.version>2.1.7</neo4j.version>
         <spring-data-neo4j.version>3.2.1.RELEASE</spring-data-neo4j.version>
         <graphware.version>2.1.7.28</graphware.version>
         <spring.version>4.0.7.RELEASE</spring.version>
@@ -20,7 +20,7 @@
     <repositories>
         <repository>
             <id>neo4j-release-repository</id>
-            <name>Neo4j Maven 2 release repository</name>
+            <firstName>Neo4j Maven 2 release repository</firstName>
             <url>http://m2.neo4j.org/releases</url>
         </repository>
     </repositories>
@@ -146,7 +146,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>${project.name}-all-${project.version}</finalName>
+                    <finalName>${project.firstName}-all-${project.version}</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>

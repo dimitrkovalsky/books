@@ -8,5 +8,9 @@ import org.neo4j.graphdb.RelationshipType;
  * Time: 16:27
  */
 public enum Relationships implements RelationshipType {
-    WRITTEN
+    WRITTEN, READ, LIKE_AUTHOR;
+
+    public static void main(String[] args) {
+
+    }
 }

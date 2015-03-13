@@ -11,14 +11,17 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 @NodeEntity
 public class Genre {
     @GraphId
-    private long id;
+    private Long id;
     private String name;
 
     public Genre() {
     }
 
-    public Genre(long id, String name) {
+    public Genre(long id) {
         this.id = id;
+    }
+
+    public Genre(String name) {
         this.name = name;
     }
 
@@ -36,5 +39,13 @@ public class Genre {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Genre{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

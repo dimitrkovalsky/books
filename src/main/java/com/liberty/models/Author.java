@@ -11,15 +11,44 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 @NodeEntity
 public class Author {
     @GraphId
-    private long id;
-    private String name;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String middleName;
+
 
     public Author() {
     }
 
-    public Author(long id, String name) {
+    public Author( String firstName, String lastName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
+
+    public Author(String firstName, String lastName, String middleName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+    }
+
+    public void setId(Long id) {
         this.id = id;
-        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public long getId() {
@@ -30,11 +59,21 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                '}';
     }
 }

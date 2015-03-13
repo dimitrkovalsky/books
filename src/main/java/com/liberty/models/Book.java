@@ -1,7 +1,10 @@
 package com.liberty.models;
 
+import com.liberty.relations.Relations;
+import org.neo4j.graphdb.Direction;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
+import org.springframework.data.neo4j.annotation.RelatedTo;
 
 /**
  * User: Dmytro_Kovalskyi
@@ -11,14 +14,32 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 @NodeEntity
 public class Book {
     @GraphId
-    private long id;
-
+    private Long id;
     private String name;
     private String isbn;
     private int year;
     private String link;
+
+    @RelatedTo(direction = Direction.INCOMING)
     private Genre genre;
+    @RelatedTo(direction = Direction.BOTH, type = Relations.WRITTEN)
     private Author author;
+
+    public Book() {
+    }
+
+    public Book(String name, Genre genre, Author author) {
+        this.name = name;
+        this.genre = genre;
+        this.author = author;
+    }
+
+    public Book(String name, int year, Genre genre, Author author) {
+        this.name = name;
+        this.year = year;
+        this.genre = genre;
+        this.author = author;
+    }
 
     public long getId() {
         return id;
@@ -74,5 +95,18 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", year=" + year +
+                ", link='" + link + '\'' +
+                ", genre=" + genre +
+                ", author=" + author +
+                '}';
     }
 }
