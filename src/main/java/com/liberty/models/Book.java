@@ -2,6 +2,7 @@ package com.liberty.models;
 
 import com.liberty.relations.Relations;
 import org.neo4j.graphdb.Direction;
+import org.springframework.data.neo4j.annotation.Fetch;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
@@ -20,9 +21,11 @@ public class Book {
     private int year;
     private String link;
 
-    @RelatedTo(direction = Direction.INCOMING)
+    @RelatedTo(direction = Direction.OUTGOING, type = Relations.GENRE)
+    @Fetch
     private Genre genre;
-    @RelatedTo(direction = Direction.BOTH, type = Relations.WRITTEN)
+    @RelatedTo(direction = Direction.OUTGOING, type = Relations.WRITTEN)
+    @Fetch
     private Author author;
 
     public Book() {

@@ -7,6 +7,7 @@ package com.liberty.relations;
  */
 public interface Relations {
     public static String WRITTEN = "WRITTEN";
+    public static String GENRE = "GENRE";
     public static String READ = "READ";
     public static String LIKE_AUTHOR = "LIKE_AUTHOR";
 }
